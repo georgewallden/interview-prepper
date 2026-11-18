@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interview Prepper</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Interview Prepper</h1>
+      <p class="sub">Practise out loud. Get grilled kindly.</p>
+    </header>
+
+    <!-- Step 1: context -->
+    <section id="setup" class="card">
+      <form id="setup-form">
+        <label>Resume (PDF)
+          <input type="file" name="resume" accept="application/pdf" />
+        </label>
+
+        <label>Job description
+          <textarea name="jobDescription" rows="7" placeholder="Paste the posting…"></textarea>
+        </label>
+
+        <label>Recruiter communications
+          <textarea name="recruiterNotes" rows="5" placeholder="Emails, LinkedIn messages, call notes — who you're meeting, what this round covers…"></textarea>
+        </label>
+
+        <div class="row">
+          <label>Interview type
+            <select name="interviewType">
+              <option value="recruiter-screen">Recruiter screen</option>
+              <option value="hiring-manager">Hiring manager</option>
+              <option value="behavioral">Behavioral</option>
+              <option value="technical">Technical (verbal)</option>
+              <option value="panel">Panel</option>
+            </select>
+          </label>
+          <label>Interviewer persona
+            <input name="persona" placeholder="e.g. Priya, friendly senior recruiter" />
+          </label>
+        </div>
+
+        <button type="submit" class="primary">Start interview</button>
+      </form>
+    </section>
+
+    <!-- Step 2: the conversation -->
+    <section id="interview" class="card" hidden>
+      <div id="status" class="status">Interviewer is reading your materials…</div>
+      <ol id="log" class="log"></ol>
+
+      <div class="controls">
+        <button id="mic" class="mic" disabled title="Click or hold Space to talk">🎙️</button>
+        <form id="text-form" class="text-form">
+          <input id="text" placeholder="…or type your answer" autocomplete="off" />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+
+      <button id="debrief" class="ghost">End &amp; get feedback</button>
+    </section>
+
+    <!-- Step 3: debrief -->
+    <section id="feedback" class="card" hidden>
+      <h2>Debrief</h2>
+      <pre id="feedback-text"></pre>
+      <button onclick="location.reload()" class="primary">Another round</button>
+    </section>
+  </main>
+
+  <audio id="player"></audio>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
